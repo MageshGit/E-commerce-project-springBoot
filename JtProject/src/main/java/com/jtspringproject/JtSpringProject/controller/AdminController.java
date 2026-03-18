@@ -181,6 +181,12 @@ public class AdminController {
 		mView.addObject("customers", users);
 		return mView;
 	}
+
+	@GetMapping("customers/delete")
+	public String deleteCustomer(@RequestParam("id") int id) {
+		this.userService.deleteUserById(id);
+		return "redirect:/admin/customers";
+	}
 	
 	
 	@GetMapping("profileDisplay")

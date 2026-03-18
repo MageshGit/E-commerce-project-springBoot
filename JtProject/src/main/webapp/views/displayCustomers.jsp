@@ -70,20 +70,9 @@
 					    ${customer.address}
 						
 				    </td>
-					</tr>
-                </c:forEach>
-
-
-				
-			</tbody>
-		</table>
-		
-	</div>
-
-
-
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+					<td>
+						<a class="btn btn-danger btn-sm" href="customers/delete?id=${customer.id}" onclick="return confirm('Delete this user?');">Delete</a>
+					</td>
 		crossorigin="anonymous"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"

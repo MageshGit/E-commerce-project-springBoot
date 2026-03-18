@@ -37,9 +37,6 @@ public class userDao {
         return user;
 	}
     
-//    public User checkLogin() {
-//    	this.sessionFactory.getCurrentSession().
-//    }
     @Transactional
     public User getUser(String username,String password) {
     	Query query = sessionFactory.getCurrentSession().createQuery("from CUSTOMER where username = :username");
@@ -80,4 +77,13 @@ public class userDao {
 	            return null; 
 	        }
     	}
+
+	@Transactional
+	public void deleteUserById(int id) {
+		Session session = this.sessionFactory.getCurrentSession();
+		User user = session.get(User.class, id);
+		if (user != null) {
+			session.delete(user);
+		}
+	}
 }
