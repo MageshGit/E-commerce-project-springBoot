@@ -54,7 +54,6 @@
 				<th scope="col">Customer Name</th>
 				<th scope="col">Email</th>
 				<th scope="col">Address</th>
-				<th scope="col">Delete</th>
 			</tr>
 			<tbody>
 				<c:forEach var="customer" items="${customers }">
@@ -70,11 +69,17 @@
 					    ${customer.address}
 						
 				    </td>
-					<td>
-						<a class="btn btn-danger btn-sm" href="customers/delete?id=${customer.id}" onclick="return confirm('Delete this user?');">Delete</a>
-					</td>
-		crossorigin="anonymous"></script>
-	<script
+					</tr>
+                </c:forEach>
+			</tbody>
+		</table>
+		
+	</div>
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
 		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
 		crossorigin="anonymous"></script>

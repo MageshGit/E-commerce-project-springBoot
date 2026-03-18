@@ -78,12 +78,4 @@ public class userDao {
 	        }
     	}
 
-	@Transactional
-	public void deleteUserById(int id) {
-		Session session = this.sessionFactory.getCurrentSession();
-		User user = session.get(User.class, id);
-		if (user != null) {
-			session.delete(user);
-		}
-	}
 }

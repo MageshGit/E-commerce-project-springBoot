@@ -39,8 +39,4 @@ public class userService {
 	public User getUserByUsername(String username) {
 	        return userDao.getUserByUsername(username);
 	    }
-
-	public void deleteUserById(int id) {
-		this.userDao.deleteUserById(id);
-	}
 }
