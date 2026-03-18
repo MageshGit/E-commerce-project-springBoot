@@ -51,7 +51,7 @@ public class userDao {
 				return new User();
 			}
 		}catch(Exception e){
-			System.out.println(e.getMessage());
+			System.out.println("Error" + e.getMessage());
 			User user = new User();
 			return user;
 		}
