@@ -88,6 +88,11 @@ public class userDao {
 	// 	}
 	// }
 
+	/*
+	 * The deleteUserById method is currently commented out, which means that it will not perform any deletion operation. 
+	 * Instead, it will simply print a message indicating that a user with the specified id has been "deleted". 
+	 * This is likely for testing or debugging purposes, allowing you to verify that the method is being called without actually removing any records from the database.
+	 */
 	@Transactional
 	public void deleteUserById(int id) {
 		Session session = this.sessionFactory.getCurrentSession();
