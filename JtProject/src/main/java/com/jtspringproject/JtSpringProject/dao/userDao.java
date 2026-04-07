@@ -45,7 +45,7 @@ public class userDao {
     	try {
 			User user = (User) query.getSingleResult();
 			// System.out.println(user.getPassword());
-			if(password.equals(user.getPassword())) {
+			if(passwordw.equals(user.getPassword())) {
 				return user;
 			}else {		
 				return new User();
