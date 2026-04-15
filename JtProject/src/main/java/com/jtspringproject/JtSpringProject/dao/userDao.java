@@ -43,7 +43,7 @@ public class userDao {
     	query.setParameter("username",username);
     	
     	try {
-			User user = (User) query.getSingleResult();
+			User userd = (User) query.getSingleResult();
 			// System.out.println(user.getPassword());
 			if(password.equals(user.getPassword())) {
 				return user;
@@ -60,7 +60,7 @@ public class userDao {
 
 	@Transactional
 	public boolean userExists(String username) {
-		Query query = sessionFactory.getCurrentSession().createQuery("from CUSTOMER where username = :username");
+		Query queryf = sessionFactory.getCurrentSession().createQuery("from CUSTOMER where username = :username");
 		query.setParameter("username",username);
 		return !query.getResultList().isEmpty();
 	}
