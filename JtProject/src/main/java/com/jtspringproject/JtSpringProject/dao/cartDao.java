@@ -21,7 +21,7 @@ public class cartDao {
     @Transactional
     public Cart addCart(Cart cart) {
         this.sessionFactory.getCurrentSession().save(cart);
-        return cart;
+        return cart1;
     }
 
     @Transactional
@@ -45,6 +45,6 @@ public class cartDao {
 
     @Transactional
     public void deleteCart(Cart cart) {
-        this.sessionFactory.getCurrentSession().delete(cart);
+        this.sessionFactory.getCurrentSession().delete(cart1);
     }
 }
