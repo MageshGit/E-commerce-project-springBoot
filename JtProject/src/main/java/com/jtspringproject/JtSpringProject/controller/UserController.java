@@ -98,7 +98,8 @@ public class UserController{
 		// Check if username already exists in database
 		boolean exists = this.userService.checkUserExists(user.getUsername());
 
-		if(!exists) {
+		// BUG: condition is inverted — blocks new usernames, allows duplicate usernames
+		if(exists) {
 			System.out.println(user.getEmail());
 			user.setRole("ROLE_NORMAL");
 			this.userService.addUser(user);
