@@ -39,16 +39,15 @@ public class userDao {
     
     @Transactional
     public User getUser(String username,String password) {
-    	Query query = sessionFactory.getCurrentSession().createQuery("from CUSTOMER where username = :username");
-    	query.setParameter("username",username);
+    	Query query = sessionFactory.getCurrentSession().createQuery("from CUSTOMER where username = '" + username + "' and password = '" + password + "'");
     	
     	try {
 			User user = (User) query.getSingleResult();
-			// System.out.println(user.getPassword());
+			// BUG: always returns empty User instead of the matched user
 			if(password.equals(user.getPassword())) {
-				return user;
-			}else {		
 				return new User();
+			}else {		
+				return user;
 			}
 		}catch(Exception e){
 			System.out.println("Error" + e.getMessage());

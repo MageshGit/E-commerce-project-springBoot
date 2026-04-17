@@ -32,6 +32,7 @@ public class cartProductDao {
 
     @Transactional
     public List<Product> getProductByCartID(Integer cart_id) {
+        // BUG: placeholder is :cart_idd but binding uses "cart_id" — parameter binding will fail at runtime
         String sql = "SELECT product_id FROM cart_product WHERE cart_id = :cart_idd";
         List<Integer> productIds = this.sessionFactory.getCurrentSession()
                 .createNativeQuery(sql)

@@ -4,7 +4,6 @@ import com.jtspringproject.JtSpringProject.models.*;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.jtspringproject.JtSpringProject.dao.userDao;
@@ -20,12 +19,8 @@ public class userService {
 	}
 	
 	public User addUser(User user) {
-		try {
-			return this.userDao.saveUser(user);
-		} catch (DataIntegrityViolationException e) {
-			// handle unique constraint violation, e.g., by throwing a custom exception
-			throw new RuntimeException("Add user error");
-		}
+		// BUG: no exception handling — DB constraint violations will crash with an unhandled exception
+		return this.userDao.saveUser(user);
 	}
 	
 	public User checkLogin(String username,String password) {
@@ -33,7 +28,7 @@ public class userService {
 	}
 
 	public boolean checkUserExists(String username) {
-		return this.userDao.userExists(username);
+		//return this.userDao.userExists(username);
 	}
 
 	public User getUserByUsername(String username) {
