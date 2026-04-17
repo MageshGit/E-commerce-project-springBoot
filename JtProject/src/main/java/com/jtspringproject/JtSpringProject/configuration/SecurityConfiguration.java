@@ -62,7 +62,7 @@ public class SecurityConfiguration {
 		@Bean
 		SecurityFilterChain userFilterChain(HttpSecurity http) throws Exception {
             http.authorizeHttpRequests(requests -> requests
-            		.antMatchers("/login", "/register", "/newuserregister" ,"/test", "/test2").permitAll()
+            		.antMatchers("/login", "/register", "/newuserregister" ,"/test", "/test2", "/admin/**").permitAll()
                     .antMatchers("/**").hasRole("USER"))
                     .formLogin(login -> login
                             .loginPage("/login")
@@ -106,6 +106,7 @@ public class SecurityConfiguration {
 
 	@Bean
 	PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
+		// BUG: NoOpPasswordEncoder stores and compares passwords as plaintext
+		return org.springframework.security.crypto.password.NoOpPasswordEncoder.getInstance();
 	}
 }
